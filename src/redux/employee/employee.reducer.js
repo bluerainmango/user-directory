@@ -2,9 +2,9 @@ import { employees } from "./employee.data";
 
 const INITIAL_STATE = {
   filteredEmployees: employees,
-  filterBy: null,
+  filterBy: "all",
   sortBy: null,
-  search: null
+  search: ""
 };
 
 const employeeReducer = (state = INITIAL_STATE, action) => {

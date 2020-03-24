@@ -12,10 +12,21 @@ import { employees } from "../../redux/employee/employee.data";
 const Table = ({ filteredEmployees, search, filterBy, sortBy }) => {
   console.log(filteredEmployees, search, filterBy, sortBy);
 
-  const employeeArr = filteredEmployees.filter(el => {
-    return el.name.includes(search);
-  });
-  console.log("😉filtered", employeeArr);
+  // Filter by search
+  if (filterBy === "all") {
+    filteredEmployees = filteredEmployees.filter(employeeObj => {
+      return Object.values(employeeObj)
+        .join("")
+        .toString()
+        .includes(search.toString());
+    });
+  } else {
+    filteredEmployees = filteredEmployees.filter(el => {
+      return el[filterBy].toLowerCase().includes(search.toLowerCase());
+    });
+  }
+
+  console.log("😉filtered", filteredEmployees);
 
   return (
     <table>
