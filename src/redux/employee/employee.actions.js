@@ -8,9 +8,10 @@ export const setFilterBy = filter => ({
   payload: filter
 });
 
-export const setSortBy = sort => ({
+export const setSortBy = (id = null, sort) => ({
   type: "SET_SORT_BY",
-  payload: sort
+  payloadFirst: id,
+  payloadSecond: sort
 });
 
 export const setSearch = search => ({

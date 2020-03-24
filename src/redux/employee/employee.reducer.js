@@ -3,7 +3,7 @@ import { employees } from "./employee.data";
 const INITIAL_STATE = {
   filteredEmployees: employees,
   filterBy: "all",
-  sortBy: "name",
+  sortBy: [null, null, null, null, null],
   search: ""
 };
 
@@ -20,10 +20,11 @@ const employeeReducer = (state = INITIAL_STATE, action) => {
         filterBy: action.payload
       };
     case "SET_SORT_BY":
-      console.log(state);
+      console.log("🦁 set sort by", action);
+      INITIAL_STATE.sortBy.splice(action.payloadFirst, 1, action.payloadSecond);
       return {
         ...state,
-        sortBy: action.payload
+        sortBy: INITIAL_STATE.sortBy
       };
     case "SET_SEARCH":
       console.log("reducer: set search", state);
