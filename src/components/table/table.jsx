@@ -18,13 +18,19 @@ const Table = ({ filteredEmployees, search, filterBy, sortBy }) => {
       return Object.values(employeeObj)
         .join("")
         .toString()
-        .includes(search.toString());
+        .toLowerCase()
+        .includes(search.toLowerCase().toString());
     });
   } else {
     filteredEmployees = filteredEmployees.filter(el => {
-      return el[filterBy].toLowerCase().includes(search.toLowerCase());
+      return typeof el[filterBy] === "number"
+        ? el[filterBy].includes(search)
+        : el[filterBy].toLowerCase().includes(search.toLowerCase());
     });
   }
+
+  // Sort
+  filteredEmployees.sort((a, b) => a.name);
 
   console.log("😉filtered", filteredEmployees);
 

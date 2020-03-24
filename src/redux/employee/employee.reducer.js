@@ -3,7 +3,7 @@ import { employees } from "./employee.data";
 const INITIAL_STATE = {
   filteredEmployees: employees,
   filterBy: "all",
-  sortBy: null,
+  sortBy: "name",
   search: ""
 };
 

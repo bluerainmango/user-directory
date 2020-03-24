@@ -4,7 +4,7 @@ export const employees = [
     name: "Emily Yu",
     email: "emily@gmail.com",
     dept: "Development",
-    ext: "123",
+    ext: 123,
     position: "Full stack developer"
   },
   {
@@ -12,7 +12,7 @@ export const employees = [
     name: "Henry Diaz",
     email: "Henry@gmail.com",
     dept: "HR",
-    ext: "425",
+    ext: 425,
     position: "HR manager"
   },
   {
@@ -20,7 +20,7 @@ export const employees = [
     name: "Jessica Clark",
     email: "Jessica@gmail.com",
     dept: "Marketing",
-    ext: "232",
+    ext: 232,
     position: "Online Marketer"
   },
   {
@@ -28,7 +28,7 @@ export const employees = [
     name: "Julie James",
     email: "Julie@gmail.com",
     dept: "Accounting",
-    ext: "533",
+    ext: 533,
     position: "Accountant"
   },
   {
@@ -36,7 +36,7 @@ export const employees = [
     name: "Wanda Wood",
     email: "Wanda@gmail.com",
     dept: "Development",
-    ext: "125",
+    ext: 125,
     position: "Backend developer"
   },
   {
@@ -44,7 +44,7 @@ export const employees = [
     name: "George Robinson",
     email: "George@gmail.com",
     dept: "Marketing",
-    ext: "184",
+    ext: 184,
     position: "Marketing manager"
   },
   {
@@ -52,7 +52,7 @@ export const employees = [
     name: "Virginia Cooper",
     email: "Virginia@gmail.com",
     dept: "Sales",
-    ext: "439",
+    ext: 449,
     position: "Local sales person"
   },
   {
@@ -60,7 +60,7 @@ export const employees = [
     name: "Earl Howard",
     email: "Earl@gmail.com",
     dept: "Sales",
-    ext: "213",
+    ext: 148,
     position: "Sales director"
   }
 ];
