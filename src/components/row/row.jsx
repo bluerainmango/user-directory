@@ -3,13 +3,13 @@ import React from "react";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 
-const Row = ({ employee }) => (
+const Row = ({ name, dept, position, ext, email }) => (
   <TableRow>
-    <TableCell>{employee.name}</TableCell>
-    <TableCell>{employee.dept}</TableCell>
-    <TableCell>{employee.position}</TableCell>
-    <TableCell>{employee.ext}</TableCell>
-    <TableCell>{employee.email}</TableCell>
+    <TableCell>{name}</TableCell>
+    <TableCell>{dept}</TableCell>
+    <TableCell>{position}</TableCell>
+    <TableCell>{ext}</TableCell>
+    <TableCell>{email}</TableCell>
   </TableRow>
 );
 

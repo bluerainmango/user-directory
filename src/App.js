@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 
 import { filterEmployees } from "./redux/employee/employee.actions";
 
-import Search from "./components/search/search";
-import Condition from "./components/condition/condition";
+import SearchBox from "./components/search-box/search-box";
+// import Condition from "./components/condition/condition";
 import "./App.css";
 import Table from "./components/table/table";
 
@@ -13,8 +13,8 @@ const App = ({ filterEmployees, filteredEmployees }) => {
     <div>
       <div className="title">Employee Directory</div>
       <main>
-        <Search />
-        <Condition />
+        <SearchBox />
+        {/* <Condition /> */}
         {console.log("filteredEmployees", filteredEmployees)}
         <Table />
       </main>

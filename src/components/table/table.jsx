@@ -19,8 +19,8 @@ const Table = ({ filteredEmployees }) => (
       </TableRow>
     </TableHead>
     <TableBody>
-      {filteredEmployees.map(employee => (
-        <Row key={employee.id} employee={employee} />
+      {filteredEmployees.map(({ id, ...otherProps }) => (
+        <Row key={id} {...otherProps} />
       ))}
     </TableBody>
   </table>

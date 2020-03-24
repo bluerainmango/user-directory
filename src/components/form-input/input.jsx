@@ -2,7 +2,7 @@ import React from "react";
 
 const Input = () => (
   <div>
-    <input type="search" placeholder="search here..."></input>
+    <input onChange="" type="search" placeholder="search here..."></input>
   </div>
 );
 

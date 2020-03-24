@@ -1,12 +1,17 @@
 import React from "react";
 
-const Select = props => (
-  <select id={props.className}>
-    <option value="name">name</option>
-    <option value="email">email</option>
-    <option value="dept">dept</option>
-    <option value="position">position</option>
+import { connect } from "react-redux";
+
+const Select = ({ className, values }) => (
+  <select id={className}>
+    {values.map(value => (
+      <option value={value}>{value}</option>
+    ))}
   </select>
 );
 
+// const mapDispatchToProps = dispatch => ({
+//   set
+// });
+// export default connect(null)(Select);
 export default Select;
