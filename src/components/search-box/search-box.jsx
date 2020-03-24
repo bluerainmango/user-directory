@@ -1,19 +1,26 @@
 import React from "react";
-import Select from "../form-select/select";
-import Input from "../form-input/input";
+import { connect } from "react-redux";
 
-const SearchBox = () => (
+import { setSearch } from "../../redux/employee/employee.actions";
+import Select from "../form-select/select";
+// import Input from "../form-input/input";
+
+const SearchBox = ({ setSearch }) => (
   <div>
     <Select
-      className="sortBy"
+      className="filterBy"
       values={["all", "name", "ext", "email", "dept", "position"]}
     />
-    <Input className="search" />
+    <input type="text" className="search" onChange={setSearch} />
     <Select
-      className="filterBy"
+      className="sortBy"
       values={["name", "ext", "email", "dept", "position"]}
     />
   </div>
 );
 
-export default SearchBox;
+const mapDispatchToProps = dispatch => ({
+  setSearch: search => dispatch(setSearch(search.target.value))
+});
+
+export default connect(null, mapDispatchToProps)(SearchBox);
