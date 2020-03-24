@@ -3,7 +3,6 @@ import Select from "../../components/form-select/select";
 
 const Condition = () => (
   <div>
-    <Select className="sortBy" />
     <Select className="filterBy" />
   </div>
 );

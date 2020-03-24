@@ -1,32 +1,34 @@
-import React, { Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
 
-import employee from "./dev-data/seeds.json";
-import Input from "./components/form-input/input";
+import { filterEmployees } from "./redux/employee/employee.actions";
+
+import Search from "./components/search/search";
 import Condition from "./components/condition/condition";
 import "./App.css";
+import Table from "./components/table/table";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = ({ filterEmployees, filteredEmployees }) => {
+  return (
+    <div>
+      <div className="title">Employee Directory</div>
+      <main>
+        <Search />
+        <Condition />
+        {console.log("filteredEmployees", filteredEmployees)}
+        <Table />
+      </main>
+    </div>
+  );
+};
 
-    this.state = {
-      employee
-    };
-  }
+const mapStateToProps = ({ employees }) => ({
+  filteredEmployees: employees.filteredEmployees
+});
 
-  componentDidMount() {}
+const mapDispatchToProps = dispatch => ({
+  filterEmployees: employees => dispatch(filterEmployees(employees))
+});
 
-  render() {
-    return (
-      <div>
-        <div className="title">Employee Directory</div>
-        <main>
-          <Input className="search" />
-          <Condition />
-        </main>
-      </div>
-    );
-  }
-}
-
-export default App;
+// export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
