@@ -4,25 +4,33 @@ import { connect } from "react-redux";
 import { setSearch } from "../../redux/employee/employee.actions";
 import Select from "../form-select/select";
 import TextField from "@material-ui/core/TextField";
-// import Input from "../form-input/input";
+import FilterListIcon from "@material-ui/icons/FilterList";
+import SortByAlphaIcon from "@material-ui/icons/SortByAlpha";
+import "./search-box.css";
 
 const SearchBox = ({ setSearch, setSortBy }) => (
-  <div>
-    <div>
+  <div className="searchBox">
+    <div className="search">
+      <p className="title withIcon">
+        <FilterListIcon />
+        Filter
+      </p>
       <Select
         className="filterBy"
         values={["all", "name", "ext", "email", "dept", "position"]}
       />
       <TextField
         id="standard-basic"
-        label="Type here"
+        label="Type search keyword"
         className="search"
         onChange={setSearch}
       />
     </div>
-
-    {/* <input type="text" className="search" onChange={setSearch} /> */}
-    {["0", "1", "2", "3", "4"].map(el => (
+    <p className="title withIcon">
+      <SortByAlphaIcon />
+      Sort
+    </p>
+    {["0", "1", "2"].map(el => (
       <Select
         key={el}
         filterOrder={el}
@@ -40,7 +48,6 @@ const SearchBox = ({ setSearch, setSortBy }) => (
           "position-ascending",
           "position-descending"
         ]}
-        // onChange={setSortBy}
       />
     ))}
   </div>
@@ -48,8 +55,6 @@ const SearchBox = ({ setSearch, setSortBy }) => (
 
 const mapDispatchToProps = dispatch => ({
   setSearch: search => dispatch(setSearch(search.target.value))
-  // setSortBy: select =>
-  //   dispatch(setSortBy(select.target.id, select.target.value))
 });
 
 export default connect(null, mapDispatchToProps)(SearchBox);

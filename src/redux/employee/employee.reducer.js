@@ -3,8 +3,7 @@ import { employees } from "./employee.data";
 const INITIAL_STATE = {
   filteredEmployees: employees,
   filterBy: "all",
-  sortBy: [null, null, null, null, null],
-  // sortBy: { first: null, second: null, third: null, fourth: null, fifth: null },
+  sortBy: [null, null, null],
   search: ""
 };
 
@@ -21,8 +20,7 @@ const employeeReducer = (state = INITIAL_STATE, action) => {
         filterBy: action.payload
       };
     case "SET_SORT_BY":
-      // arr or obj?
-      console.log("🦁 set sort by", action);
+      // Copy sortBy array and mutate it
       let copiedSortBy = [...state.sortBy];
       copiedSortBy.splice(action.payloadFirst, 1, action.payloadSecond);
 
@@ -30,16 +28,8 @@ const employeeReducer = (state = INITIAL_STATE, action) => {
         ...state,
         sortBy: copiedSortBy
       };
-    // const key = {action.payloadFirst: action.payloadSecond}
-    // return {
-    //   ...state,
-    //   sortBy: {
-    //     ...state.sortBy,
-    //     {...action.payloadFirst : action.payloadSecond}
-    //   }
-    // };
+
     case "SET_SEARCH":
-      console.log("reducer: set search", state);
       return {
         ...state,
         search: action.payload
