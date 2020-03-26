@@ -14,8 +14,6 @@ const App = ({ filterEmployees, filteredEmployees }) => {
       <div className="title">Employee Directory</div>
       <main>
         <SearchBox />
-        {/* <Condition /> */}
-        {console.log("filteredEmployees", filteredEmployees)}
         <Table />
       </main>
     </div>

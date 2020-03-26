@@ -8,6 +8,30 @@ export const employees = [
     position: "Full stack developer"
   },
   {
+    id: 70,
+    name: "Emily Yu",
+    email: "emily4@gmail.com",
+    dept: "HR",
+    ext: 129,
+    position: "HR assistant"
+  },
+  {
+    id: 100,
+    name: "Emily Yu",
+    email: "emily2@gmail.com",
+    dept: "Marketing",
+    ext: 121,
+    position: "Ecommerce marketer"
+  },
+  {
+    id: 50,
+    name: "Emily Yu",
+    email: "emily3@gmail.com",
+    dept: "HR",
+    ext: 125,
+    position: "HR assistant"
+  },
+  {
     id: 2,
     name: "Henry Diaz",
     email: "Henry@gmail.com",

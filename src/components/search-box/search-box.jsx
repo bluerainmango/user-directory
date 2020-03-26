@@ -17,7 +17,19 @@ const SearchBox = ({ setSearch, setSortBy }) => (
         key={el}
         filterOrder={el}
         className="sortBy"
-        values={["none", "name", "ext", "email", "dept", "position"]}
+        values={[
+          "none",
+          "name-ascending",
+          "name-descending",
+          "ext-ascending",
+          "ext-descending",
+          "email-ascending",
+          "email-descending",
+          "dept-ascending",
+          "dept-descending",
+          "position-ascending",
+          "position-descending"
+        ]}
         // onChange={setSortBy}
       />
     ))}
