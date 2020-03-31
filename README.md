@@ -1,6 +1,6 @@
 # user-directory
 
-Simple employee directory page supporting quick filtering and sorting.
+Simple employee directory page that supports quick filtering and sorting.
 
 #### 🖥 Deployed ver.
 
@@ -12,7 +12,7 @@ React, Redux, Material-UI, Javascript, HTML
 
 ### 🎯 Purpose
 
-The app provides the easy filtering and sorting options so that a user can quickly access to their infomation.
+The app provides easy filtering and sorting options so that the user can quickly have access to their infomation.
 
 ### ✨ Demo
 
