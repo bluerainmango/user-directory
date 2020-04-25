@@ -1,7 +1,7 @@
 export const tableUtil = (filteredEmployees, search, filterBy, sortBy) => {
   //! Filter by search
   if (filterBy === "all") {
-    filteredEmployees = filteredEmployees.filter(employeeObj => {
+    filteredEmployees = filteredEmployees.filter((employeeObj) => {
       return Object.values(employeeObj)
         .join("")
         .toString()
@@ -9,7 +9,7 @@ export const tableUtil = (filteredEmployees, search, filterBy, sortBy) => {
         .includes(search.toLowerCase().toString());
     });
   } else {
-    filteredEmployees = filteredEmployees.filter(el => {
+    filteredEmployees = filteredEmployees.filter((el) => {
       return typeof el[filterBy] === "number"
         ? `${el[filterBy]}`.includes(search)
         : el[filterBy].toLowerCase().includes(search.toLowerCase());
@@ -20,7 +20,7 @@ export const tableUtil = (filteredEmployees, search, filterBy, sortBy) => {
   //* Util 1: Multiple sorting function
   // firstBy function is taken from Teun Duynstee's ThenBy.js library
   // https://github.com/Teun/thenBy.js/blob/master/thenBy.js
-  const firstBy = (function() {
+  const firstBy = (function () {
     function extend(f) {
       // f: firstBy's param(first comparison func)
       f.thenBy = tb;
@@ -29,7 +29,7 @@ export const tableUtil = (filteredEmployees, search, filterBy, sortBy) => {
 
     function tb(y) {
       const x = this; // this === f
-      return extend(function(a, b) {
+      return extend(function (a, b) {
         return x(a, b) || y(a, b); // if first func return 0(equal) => compare with next func: y(a,b)
       });
     }
@@ -42,15 +42,15 @@ export const tableUtil = (filteredEmployees, search, filterBy, sortBy) => {
     const order = value.split("-")[1];
 
     if (sortName === "ext" && order === "ascending") {
-      return function(v1, v2) {
+      return function (v1, v2) {
         return v1[sortName] - v2[sortName];
       };
     } else if (sortName === "ext" && order === "descending") {
-      return function(v1, v2) {
+      return function (v1, v2) {
         return v2[sortName] - v1[sortName];
       };
     } else if (sortName !== "ext" && order === "ascending") {
-      return function(v1, v2) {
+      return function (v1, v2) {
         return v1[sortName] < v2[sortName]
           ? -1
           : v1[sortName] > v2[sortName]
@@ -58,7 +58,7 @@ export const tableUtil = (filteredEmployees, search, filterBy, sortBy) => {
           : 0;
       };
     } else {
-      return function(v1, v2) {
+      return function (v1, v2) {
         return v2[sortName] < v1[sortName]
           ? -1
           : v2[sortName] > v1[sortName]
@@ -69,7 +69,7 @@ export const tableUtil = (filteredEmployees, search, filterBy, sortBy) => {
   }
 
   //* Only when sortBy arr has a valid value of sort
-  if (sortBy.some(el => el && el !== "none")) {
+  if (sortBy.some((el) => el && el !== "none")) {
     let sorting;
 
     //* 1. Create sorting (multiple sort standards)
@@ -79,10 +79,10 @@ export const tableUtil = (filteredEmployees, search, filterBy, sortBy) => {
         // First time to sort or not?
         if (!sorting) {
           sorting = firstBy(sortCallBackFunc(sortBy[i]));
-          console.log("🐹sorting: firstBy", sorting);
+          // console.log("🐹sorting: firstBy", sorting);
         } else {
           sorting = sorting.thenBy(sortCallBackFunc(sortBy[i]));
-          console.log("🦊sorting: thenBy", sorting);
+          // console.log("🦊sorting: thenBy", sorting);
         }
       }
     }

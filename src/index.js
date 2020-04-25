@@ -11,7 +11,7 @@ ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <App />
-      {console.log("store", store)}
+      {/* {console.log("store", store)} */}
     </React.StrictMode>
   </Provider>,
   document.getElementById("root")
